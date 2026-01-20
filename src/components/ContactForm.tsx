@@ -5,6 +5,8 @@ import { Send, Phone, Mail, MapPin, CheckCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters').max(100),
@@ -43,10 +45,22 @@ export const ContactForm = () => {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log('Form submitted:', data);
-    setIsSubmitted(true);
+    try {
+      const { data: response, error } = await supabase.functions.invoke('submit-contact', {
+        body: data,
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      console.log('Form submitted successfully:', response);
+      setIsSubmitted(true);
+      toast.success('Your message has been sent successfully!');
+    } catch (error: any) {
+      console.error('Form submission error:', error);
+      toast.error('Failed to send your message. Please try again.');
+    }
   };
 
   return (
