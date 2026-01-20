@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import ProcessAutomation from "./pages/solutions/ProcessAutomation";
+import Automotive from "./pages/industries/Automotive";
+import Pharmaceutical from "./pages/industries/Pharmaceutical";
+import FoodBeverage from "./pages/industries/FoodBeverage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +23,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/solutions/process-automation" element={<ProcessAutomation />} />
+          <Route path="/industries/automotive" element={<Automotive />} />
+          <Route path="/industries/pharmaceutical" element={<Pharmaceutical />} />
+          <Route path="/industries/food-beverage" element={<FoodBeverage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
