@@ -4,39 +4,23 @@ import { Menu, X, ChevronDown, Search, Cog } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const navItems = [
-  {
-    label: 'Solutions',
-    hasDropdown: true,
-    items: [
-      { label: 'Process Automation', href: '/solutions/process-automation' },
-      { label: 'Discrete Automation', href: '/solutions/discrete-automation' },
-      { label: 'System Integration', href: '/solutions/system-integration' },
-      { label: 'Support & Maintenance', href: '/solutions/support-maintenance' },
-    ],
-  },
+  { label: 'About Us', href: '/about' },
+  { label: 'Expertise', href: '/expertise' },
   {
     label: 'Industries',
     hasDropdown: true,
     items: [
+      { label: 'All Industries', href: '/industries' },
       { label: 'Automotive', href: '/industries/automotive' },
       { label: 'Pharmaceutical', href: '/industries/pharmaceutical' },
       { label: 'Food & Beverage', href: '/industries/food-beverage' },
-      { label: 'Electronics', href: '/industries/electronics' },
-      { label: 'Oil & Gas', href: '/industries/oil-gas' },
     ],
   },
-  { label: 'Products', href: '/products' },
-  { label: 'Case Studies', href: '/case-studies' },
-  {
-    label: 'Resources',
-    hasDropdown: true,
-    items: [
-      { label: 'Blog', href: '/resources/blog' },
-      { label: 'Whitepapers', href: '/resources/whitepapers' },
-      { label: 'Webinars', href: '/resources/webinars' },
-    ],
-  },
-  { label: 'About Us', href: '/about' },
+  { label: 'Approach', href: '/approach' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Quality', href: '/quality' },
+  { label: 'Careers', href: '/careers' },
+  { label: 'Gallery', href: '/gallery' },
 ];
 
 export const Navbar = () => {
@@ -120,8 +104,8 @@ export const Navbar = () => {
             <button className="p-2 text-foreground/60 hover:text-primary transition-colors">
               <Search className="w-5 h-5" />
             </button>
-            <Button variant="cta" size="lg">
-              Get Quote
+            <Button asChild variant="cta" size="lg">
+              <a href="/contact">Contact Us</a>
             </Button>
           </div>
 
@@ -184,8 +168,8 @@ export const Navbar = () => {
                   </div>
                 ))}
                 <div className="pt-4 border-t border-border mt-4">
-                  <Button variant="cta" className="w-full">
-                    Get Quote
+                  <Button asChild variant="cta" className="w-full">
+                    <a href="/contact">Contact Us</a>
                   </Button>
                 </div>
               </div>
